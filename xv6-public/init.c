@@ -20,13 +20,16 @@ main(void)
   dup(0);  // stderr
 
   for(;;){
-    printf(1, "init: starting sh\n");
+    printf(1, "Iniciando el SO :D\n"); // parte 3
     pid = fork();
     if(pid < 0){
       printf(1, "init: fork failed\n");
       exit();
     }
     if(pid == 0){
+	  // 1) sh -> ls imprime infinitas veces los contenidos del directorio
+	  // 2) ls -> nohayprograma -> init: init: starting sh, exec sh failed ya que no existe el programa 
+	  // 3) 
       exec("sh", argv);
       printf(1, "init: exec sh failed\n");
       exit();
